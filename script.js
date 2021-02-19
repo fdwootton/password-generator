@@ -11,9 +11,14 @@ function writePassword() {
   }
 
   else if (numberOfChar >= 8 && numberOfChar <= 128) {
-  var upperCaseAnwer = confirm("Would you like upper case letters in your password?");
+  var upperCaseAnswer = confirm("Would you like upper case letters in your password?");
+  var lowerCaseAnswer = confirm("Would you like lower case letters in your password?");
+  var specialCharAnswer = confirm("Would you like special characters in your password?");
     }
-    
+
+  if (upperCaseAnswer === true && lowerCaseAnswer === true && specialCharAnswer === true) {
+    console.log("yes");
+  }
   }
 
 
