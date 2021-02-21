@@ -18,20 +18,32 @@ function writePassword() {
   }
 
   else if (numberOfChar >= 8 && numberOfChar <= 128) {
-    var upperCaseAnswer = confirm("Would you like upper case letters in your password?");
+    var upperCaseAnswer = confirm("Would you like uppercase letters in your password?");
+
     if (upperCaseAnswer) {
       passwordArray.concat(upperCaseLetters);
     }
 
-    var lowerCaseAnswer = confirm("Would you like lower case letters in your password?");
+    var lowerCaseAnswer = confirm("Would you like lowercase letters in your password?");
+    if (lowerCaseAnswer) {
+      passwordArray.concat(lowerCaseLetters);
+    }
+
+    var numberAnswer = confirm("Would you like numbers in your password?");
+    if (numberAnswer) {
+      passwordArray.concat(numbers);
+    }
 
     var specialCharAnswer = confirm("Would you like special characters in your password?");
+    if (specialCharAnswer) {
+      passwordArray.concat(specialChars);
+    }
 
     if (passwordArray.length == 0) {
-      alert("must")
+      alert("Must choose at least one of the following: uppercase letters, lowercase letters, numbers, or special characters.")
     }
     else{
-      for (let index = 0; index < parseInt(numberOfChar); index++) {
+      for (var index = 0; index < parseInt(numberOfChar); index++) {
         //look for random index usinmg mathl.random
         //append to password string :)
         const element = passwordArray[index];
