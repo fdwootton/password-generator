@@ -27,7 +27,7 @@ function generatePassword() {
 
     if (upperCaseAnswer) {
       passwordArray = passwordArray.concat(upperCaseLetters);
-      password += upperCaseLetters[Math.floor(Math.random() * 26)];
+      password += upperCaseLetters[Math.floor(Math.random() * upperCaseLetters.length)];
       saved++;
     }
 
@@ -35,7 +35,7 @@ function generatePassword() {
 
     if (lowerCaseAnswer) {
       passwordArray = passwordArray.concat(lowerCaseLetters);
-      password += lowerCaseLetters[Math.floor(Math.random() * 26)];
+      password += lowerCaseLetters[Math.floor(Math.random() * lowerCaseLetters.length)];
       saved++;
     }
 
@@ -43,7 +43,7 @@ function generatePassword() {
 
     if (numberAnswer) {
       passwordArray = passwordArray.concat(numbers);
-      password += numbers[Math.floor(Math.random() * 10)];
+      password += numbers[Math.floor(Math.random() * numbers.length)];
       saved++;
     }
 
@@ -51,7 +51,7 @@ function generatePassword() {
 
     if (specialCharAnswer) {
       passwordArray = passwordArray.concat(specialChars);
-      password += specialChars[Math.floor(Math.random() * 23)];
+      password += specialChars[Math.floor(Math.random() * specialChars.length)];
       saved++;
       console.log("password", password);
     }
