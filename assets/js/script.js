@@ -14,6 +14,8 @@ function generatePassword() {
 
   var password = "";
 
+  var saved = 0
+
   var numberOfChar = prompt("How many characters would you like in your password? (Choose a number 8 through 128)");
 
   if (numberOfChar < 8 || numberOfChar > 128 || isNaN(numberOfChar) || numberOfChar != Math.floor(numberOfChar)) {
@@ -25,24 +27,33 @@ function generatePassword() {
 
     if (upperCaseAnswer) {
       passwordArray = passwordArray.concat(upperCaseLetters);
+      password += upperCaseLetters[Math.floor(Math.random() * 26)];
+      saved++;
     }
 
     var lowerCaseAnswer = confirm("Would you like lowercase letters in your password?");
 
     if (lowerCaseAnswer) {
       passwordArray = passwordArray.concat(lowerCaseLetters);
+      password += lowerCaseLetters[Math.floor(Math.random() * 26)];
+      saved++;
     }
 
     var numberAnswer = confirm("Would you like numbers in your password?");
 
     if (numberAnswer) {
       passwordArray = passwordArray.concat(numbers);
+      password += numbers[Math.floor(Math.random() * 10)];
+      saved++;
     }
 
     var specialCharAnswer = confirm("Would you like special characters in your password?");
 
     if (specialCharAnswer) {
       passwordArray = passwordArray.concat(specialChars);
+      password += specialChars[Math.floor(Math.random() * 23)];
+      saved++;
+      console.log("password", password);
     }
 
     if (passwordArray.length == 0) {
@@ -50,15 +61,16 @@ function generatePassword() {
     }
 
     else{
-      for (var index = 0; index < parseInt(numberOfChar); index++) {
-        var randomElement = Math.floor(Math.random() * (passwordArray.length - 1));
+
+      for (var index = 0; index < parseInt(numberOfChar - saved); index++) {
+        var randomElement = Math.floor(Math.random() * (passwordArray.length));
         password += passwordArray[randomElement];
       }
     
     return password;
     }
   }
-  }
+}
 
 function writePassword() {
   var password = generatePassword();
@@ -67,10 +79,6 @@ function writePassword() {
 
   passwordText.value = password;
 }
-
-
-
-
 
 
 // Add event listener to generate button

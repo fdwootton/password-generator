@@ -18,7 +18,7 @@ function generatePassword() {
 
   var numberOfChar = prompt("How many characters would you like in your password? (Choose a number 8 through 128)");
 
-  if (numberOfChar < 8 || numberOfChar > 128 || isNaN(numberOfChar) || numberOfChar !== Math.floor(numberOfChar)) {
+  if (numberOfChar < 8 || numberOfChar > 128 || isNaN(numberOfChar) || numberOfChar != Math.floor(numberOfChar)) {
     alert("Not a valid number. Please choose a number 8 through 128.");
   }
 
@@ -53,9 +53,8 @@ function generatePassword() {
       passwordArray = passwordArray.concat(specialChars);
       password += specialChars[Math.floor(Math.random() * 23)];
       saved++;
+      console.log("password", password);
     }
-
-    console.log("password", password);
 
     if (passwordArray.length == 0) {
       alert("Must choose at least ONE of the following: uppercase letters, lowercase letters, numbers, or special characters.")
