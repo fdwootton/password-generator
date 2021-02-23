@@ -53,7 +53,6 @@ function generatePassword() {
       passwordArray = passwordArray.concat(specialChars);
       password += specialChars[Math.floor(Math.random() * specialChars.length)];
       saved++;
-      console.log("password", password);
     }
 
     if (passwordArray.length == 0) {
