@@ -16,7 +16,7 @@ function generatePassword() {
 
   var numberOfChar = prompt("How many characters would you like in your password? (Choose a number 8 through 128)");
 
-  if (numberOfChar < 8 || numberOfChar > 128 || isNaN(numberOfChar)) {
+  if (numberOfChar < 8 || numberOfChar > 128 || isNaN(numberOfChar) || numberOfChar != Math.floor(numberOfChar)) {
     alert("Not a valid number. Please choose a number 8 through 128.");
   }
 
